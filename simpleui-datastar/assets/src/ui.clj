@@ -5,7 +5,8 @@
    [<<ns-name>>.web.views.home :as home]
    [integrant.core :as ig]
    [reitit.ring.middleware.muuntaja :as muuntaja]
-   [reitit.ring.middleware.parameters :as parameters]))
+   [reitit.ring.middleware.parameters :as parameters]
+   [simpleui.middleware :refer [wrap-datastar]]))
 
 (defn route-data [opts]
   (merge
@@ -17,6 +18,7 @@
       parameters/parameters-middleware
       ;; encoding response body
       muuntaja/format-response-middleware
+      wrap-datastar
       ;; exception handling
       exception/wrap-exception]}))
 

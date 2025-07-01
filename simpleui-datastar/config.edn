@@ -18,7 +18,7 @@
      :target [:deps]
      :action :merge
      :value  {simpleui/simpleui {:git/url "https://github.com/whamtet/simpleui"
-                                 :git/sha "a107d7a8a69755dae6cd9954992614a86504c257"}}}
+                                 :git/sha "b5f015e3ad78de86ec544c83bb5b75c20467460c"}}}
     {:type   :clj
      :path   "src/clj/<<sanitized>>/core.clj"
      :action :append-requires

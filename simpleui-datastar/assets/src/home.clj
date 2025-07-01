@@ -3,12 +3,15 @@
       [simpleui.core :as simpleui :refer [defcomponent]]
       [<<ns-name>>.web.page :refer [page]]))
 
-(defcomponent ^:endpoint hello [req my-name]
-  [:div#hello "Hello " my-name])
+(defcomponent ^:endpoint hello [req]
+  (prn 'hello (:params req))
 
 (defn ui-routes [base-path]
   (simpleui/make-routes
    base-path
    (fn [req]
+     hello
      (page
-      [:div "ok"]))))
+      [:input {:data-bind-input true}]
+      [:button {:data-on-click "@get('hello')"} "hi"]
+      [:button {:data-on-click "@post('hello')"} "there"]))))
