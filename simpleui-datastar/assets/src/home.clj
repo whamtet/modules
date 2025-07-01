@@ -4,7 +4,7 @@
       [<<ns-name>>.web.page :refer [page]]))
 
 (defcomponent ^:endpoint hello [req]
-  (prn 'hello (:params req))
+  (prn 'hello (:params req)))
 
 (defn ui-routes [base-path]
   (simpleui/make-routes
