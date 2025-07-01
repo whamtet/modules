@@ -1,4 +1,4 @@
-(ns <<ns-name>>.web.htmx
+(ns <<ns-name>>.web.page
   (:require
    [simpleui.render :as render]
    [ring.util.http-response :as http-response]
