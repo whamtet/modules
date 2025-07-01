@@ -6,6 +6,7 @@
    [integrant.core :as ig]
    [reitit.ring.middleware.muuntaja :as muuntaja]
    [reitit.ring.middleware.parameters :as parameters]
+   [reitit.ring.coercion :as coercion]
    [simpleui.middleware :refer [wrap-datastar]]))
 
 (defn route-data [opts]
@@ -13,11 +14,20 @@
    opts
    {:muuntaja   formats/instance
     :middleware
-    [;; Default middleware for ui
-    ;; query-params & form-params
+    [
       parameters/parameters-middleware
+      ;; content-negotiation
+      muuntaja/format-negotiate-middleware
       ;; encoding response body
       muuntaja/format-response-middleware
+      ;; exception handling
+      coercion/coerce-exceptions-middleware
+      ;; decoding request body
+      muuntaja/format-request-middleware
+      ;; coercing response bodys
+      coercion/coerce-response-middleware
+      ;; coercing request parameters
+      coercion/coerce-request-middleware
       wrap-datastar
       ;; exception handling
       exception/wrap-exception]}))
