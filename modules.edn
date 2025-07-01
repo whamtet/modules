@@ -15,6 +15,9 @@
   :kit/simpleui
   {:path "simpleui"
    :doc "adds support for HTMX using SimpleUI (previously called ctmx)"}
+  :kit/simpleui-datastar
+  {:path "simpleui-datastar"
+   :doc "add support for Datastar using SimpleUI"}
   :kit/dominoui
   {:path "dominoui"
    :doc "adds support for HTMX using SimpleUI and Domino"}
