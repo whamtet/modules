@@ -1,0 +1,12 @@
+{:default
+ {:requires [:kit/cljs :kit/html]
+  :require-restart? true
+  :actions
+  {:assets [["assets/src/core.cljs" "src/cljs/<<sanitized>>/core.cljs"]
+            ["assets/package.json"  "package.json"]]
+   :injections
+   [{:type   :edn
+     :path   "shadow-cljs.edn"
+     :target [:dependencies]
+     :action :append
+     :value  [reagent "2.0.1"]}]}}}
