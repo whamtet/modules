@@ -33,6 +33,9 @@
   :kit/cljs
   {:path "cljs"
    :doc "adds support for cljs using shadow-cljs"}
+  :kit/reagent
+  {:path "reagent"
+   :doc "adds support for Reagent (React 19 via reagent.dom.client). Requires :kit/cljs and :kit/html"}
   :kit/nrepl
   {:path "nrepl"
    :doc "adds support for nREPL"}
