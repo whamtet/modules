@@ -40,11 +40,12 @@
                  :path   "build.clj"
                  :action :append-build-task
                  :value  (defn build-cljs []
-                           (println "npx shadow-cljs release app...")
+                           (println "npx shadow-cljs release app-prod...")
                            (let [{:keys [exit]
-                                  :as   s} (shell "npx shadow-cljs release app")]
+                                  :as   s} (shell "npx shadow-cljs release app-prod")]
                              (when-not (zero? exit)
                                (throw (ex-info "could not compile cljs" s)))
+                             (b/delete {:path "target/classes/public/js"})
                              (copy-tree "target/classes/cljsbuild/public" "target/classes/public")))}
                 {:type   :clj
                  :path   "build.clj"
